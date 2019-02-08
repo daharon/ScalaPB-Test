@@ -4,6 +4,7 @@ import io.grpc.ManagedChannelBuilder
 import org.scalatest.{FlatSpec, Matchers}
 
 import us.aharon.scalapbtest.api.db.{DbGrpc, ReadRequest, WriteRequest}
+import us.aharon.scalapbtest.fixtures.{CassandraBackendGrpcServerFixture, CassandraFixture}
 
 
 class CassandraBackendSpec extends FlatSpec
@@ -35,5 +36,6 @@ class CassandraBackendSpec extends FlatSpec
     // Read it back via the gRPC server.
     val response = client.read(new ReadRequest(key))
     assert(key == response.key)
+    assert(data == response.data)
   }
 }

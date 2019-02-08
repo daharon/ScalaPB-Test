@@ -1,4 +1,4 @@
-package us.aharon.scalapbtest
+package us.aharon.scalapbtest.fixtures
 
 import org.cassandraunit.CQLDataLoader
 import org.cassandraunit.dataset.cql.ClassPathCQLDataSet

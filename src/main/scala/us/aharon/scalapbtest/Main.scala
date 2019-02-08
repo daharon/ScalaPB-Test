@@ -14,7 +14,7 @@ object Main extends App {
   final val PORT = 8080
   val log = Logger.getLogger("Main")
 
-  val server = ServerBuilder.forPort(8080)
+  val server = ServerBuilder.forPort(PORT)
     .addService(GreeterGrpc.bindService(new Greeter, ExecutionContext.global))
     .addService(DbGrpc.bindService(new CassandraBackend, ExecutionContext.global))
     .build

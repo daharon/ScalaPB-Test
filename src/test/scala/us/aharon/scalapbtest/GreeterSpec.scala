@@ -3,7 +3,8 @@ package us.aharon.scalapbtest
 import io.grpc.ManagedChannelBuilder
 import org.scalatest.{FlatSpec, Matchers}
 
-import us.aharon.scalapbtest.api.hello.{GreeterGrpc, HelloReply, HelloRequest}
+import us.aharon.scalapbtest.api.hello.{GreeterGrpc, HelloRequest}
+import us.aharon.scalapbtest.fixtures.GreeterGrpcServerFixture
 
 
 class GreeterSpec extends FlatSpec
@@ -13,7 +14,7 @@ class GreeterSpec extends FlatSpec
 
   "A call to sayHello" should "return a greeting" in {
     val name = "Test"
-    val expected = new HelloReply(message = s"Hello, $name!")
+    val expected = s"Hello, $name!"
 
     // Perform RPC request.
     val channel = ManagedChannelBuilder.forAddress("localhost", 8080)
@@ -23,6 +24,6 @@ class GreeterSpec extends FlatSpec
     val response = blockingStub.sayHello(new HelloRequest(name))
 
     // Test response.
-    assert(response.message == expected.message)
+    assert(response.message == expected)
   }
 }

@@ -1,20 +1,21 @@
-package us.aharon.scalapbtest
+package us.aharon.scalapbtest.fixtures
 
 import io.grpc.{Server, ServerBuilder}
 import org.scalatest.{BeforeAndAfterEach, Suite}
 
-import us.aharon.scalapbtest.api.hello.GreeterGrpc
+import us.aharon.scalapbtest.CassandraBackend
+import us.aharon.scalapbtest.api.db.DbGrpc
 
 import scala.concurrent.ExecutionContext
 
 
-trait GreeterGrpcServerFixture extends BeforeAndAfterEach { this: Suite =>
+trait CassandraBackendGrpcServerFixture extends BeforeAndAfterEach { this: Suite =>
 
   private var server: Server = _
 
   override def beforeEach(): Unit = {
     server = ServerBuilder.forPort(8080)
-      .addService(GreeterGrpc.bindService(new Greeter, ExecutionContext.global))
+      .addService(DbGrpc.bindService(new CassandraBackend, ExecutionContext.global))
       .build()
       .start()
     super.beforeEach()
