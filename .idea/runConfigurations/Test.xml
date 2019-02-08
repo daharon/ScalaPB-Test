@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+    <module name="scalapb-test" />
+    <setting name="path" value="" />
+    <setting name="vmparams" value="" />
+    <setting name="params" value="" />
+    <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+    <setting name="searchForTest" value="In whole project" />
+    <setting name="showProgressMessages" value="true" />
+    <setting name="useSbt" value="false" />
+    <setting name="useUiWithSbt" value="false" />
+    <envs />
+    <setting name="testKind" value="All in package" />
+    <setting name="package" value="us.aharon.scalapbtest" />
+    <buffered bufClass="us.aharon.scalapbtest.GreeterSpec" />
+    <buffered bufClass="us.aharon.scalapbtest.GreeterSpec" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
