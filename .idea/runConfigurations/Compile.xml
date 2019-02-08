@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Compile" type="SbtRunConfiguration" factoryName="sbt Task">
+    <setting name="tasks" value="compile" />
+    <setting name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
+    <setting name="workingDir" value="$PROJECT_DIR$" />
+    <setting name="useSbtShell" value="true" />
+    <method v="2" />
+  </configuration>
+</component>
