@@ -12,6 +12,8 @@
     <envs />
     <setting name="testKind" value="All in package" />
     <setting name="package" value="us.aharon.scalapbtest" />
+    <buffered bufClass="us.aharon.scalapbtest.CassandraBackendSpec" />
+    <buffered bufClass="us.aharon.scalapbtest.CassandraBackendSpec" />
     <buffered bufClass="us.aharon.scalapbtest.GreeterSpec" />
     <buffered bufClass="us.aharon.scalapbtest.GreeterSpec" />
     <method v="2">

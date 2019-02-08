@@ -1,27 +1,15 @@
 package us.aharon.scalapbtest
 
-import io.grpc.{ManagedChannelBuilder, ServerBuilder}
-import org.scalatest.{FlatSpec, Matchers, Outcome}
+import io.grpc.ManagedChannelBuilder
+import org.scalatest.{FlatSpec, Matchers}
 
 import us.aharon.scalapbtest.api.hello.{GreeterGrpc, HelloReply, HelloRequest}
 
-import scala.concurrent.ExecutionContext
 
-
-class GreeterSpec extends FlatSpec with Matchers {
-
-  // Start the server before the test.  Shutdown after.
-  override def withFixture(test: NoArgTest): Outcome = {
-    val server = ServerBuilder.forPort(8080)
-      .addService(GreeterGrpc.bindService(new SayHello, ExecutionContext.global))
-      .build
-      .start
-    try {
-      super.withFixture(test)
-    } finally {
-      server.shutdown
-    }
-  }
+class GreeterSpec extends FlatSpec
+  with Matchers
+  with GreeterGrpcServerFixture
+{
 
   "A call to sayHello" should "return a greeting" in {
     val name = "Test"
